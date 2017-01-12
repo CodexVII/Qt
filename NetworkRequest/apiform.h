@@ -2,8 +2,7 @@
 #define APIFORM_H
 
 #include <QWidget>
-#include "QNetworkReply"
-#include "QUrlQuery"
+#include "createuserrequest.h"
 
 namespace Ui {
 class ApiForm;
@@ -16,15 +15,18 @@ class ApiForm : public QWidget
 public:
     explicit ApiForm(QWidget *parent = 0);
     ~ApiForm();
-    void createUser();
+    void createUserFunc();
 
-private slots:
-    void onPostFinished(QNetworkReply *reply);
+public slots:
+    void onPostFinished(QByteArray response);
 
     void on_createUser_clicked();
 
 private:
     Ui::ApiForm *ui;
+
+    //Form logic for creating user
+    CreateUserRequest createUserRequest;
 };
 
 #endif // APIFORM_H

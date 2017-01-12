@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ApiForm_t {
-    QByteArrayData data[6];
-    char stringdata0[67];
+    QByteArrayData data[5];
+    char stringdata0[55];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,13 +32,12 @@ static const qt_meta_stringdata_ApiForm_t qt_meta_stringdata_ApiForm = {
 QT_MOC_LITERAL(0, 0, 7), // "ApiForm"
 QT_MOC_LITERAL(1, 8, 14), // "onPostFinished"
 QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(4, 39, 5), // "reply"
-QT_MOC_LITERAL(5, 45, 21) // "on_createUser_clicked"
+QT_MOC_LITERAL(3, 24, 8), // "response"
+QT_MOC_LITERAL(4, 33, 21) // "on_createUser_clicked"
 
     },
-    "ApiForm\0onPostFinished\0\0QNetworkReply*\0"
-    "reply\0on_createUser_clicked"
+    "ApiForm\0onPostFinished\0\0response\0"
+    "on_createUser_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,11 +55,11 @@ static const uint qt_meta_data_ApiForm[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x08 /* Private */,
-       5,    0,   27,    2, 0x08 /* Private */,
+       1,    1,   24,    2, 0x0a /* Public */,
+       4,    0,   27,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QByteArray,    3,
     QMetaType::Void,
 
        0        // eod
@@ -72,20 +71,9 @@ void ApiForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         ApiForm *_t = static_cast<ApiForm *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->onPostFinished((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 0: _t->onPostFinished((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 1: _t->on_createUser_clicked(); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 0:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
-            }
-            break;
         }
     }
 }
@@ -120,7 +108,7 @@ int ApiForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 2)
-            qt_static_metacall(this, _c, _id, _a);
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 2;
     }
     return _id;

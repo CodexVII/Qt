@@ -41,7 +41,7 @@ public:
     {
         if (ApiForm->objectName().isEmpty())
             ApiForm->setObjectName(QStringLiteral("ApiForm"));
-        ApiForm->resize(351, 263);
+        ApiForm->resize(1177, 430);
         label = new QLabel(ApiForm);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(20, 20, 71, 21));

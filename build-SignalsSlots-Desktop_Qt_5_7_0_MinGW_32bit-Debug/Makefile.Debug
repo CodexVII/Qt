@@ -491,7 +491,9 @@ debug/mainwindow.o: ../SignalsSlots/mainwindow.cpp ../SignalsSlots/mainwindow.h 
 		C:/Qt/5.7/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../SignalsSlots/counter.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\SignalsSlots\mainwindow.cpp
 
 debug/counter.o: ../SignalsSlots/counter.cpp ../SignalsSlots/counter.h \

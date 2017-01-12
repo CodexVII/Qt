@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "counter.h"
 
 #include <iostream>
 
@@ -11,17 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    Counter a, b;
-    QObject::connect(&a, SIGNAL(valueChanged(int)),
-                       &b, SLOT(setValue(int)));
 
-    a.setValue(12);
-    cout << a.value() << endl;
-    cout << b.value() << endl;
-
-    b.setValue(48);
-    cout << a.value() << endl;
-    cout << b.value() << endl;
 }
 
 MainWindow::~MainWindow()
@@ -29,3 +18,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::updateCounters()
+{
+    QString input = ui->counterUpdate->text();
+
+
+    QObject::connect(&a, SIGNAL(valueChanged(int)),
+                       &b, SLOT(setValue(int)));
+
+    if(input.toInt() < 20){
+        a.setValue(input.toInt());
+    }else{
+        b.setValue(input.toInt());
+    }
+
+    ui->aValue->setText(QString::number(a.value()));
+    ui->bValue->setText(QString::number(b.value()));
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    updateCounters();
+}

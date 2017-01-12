@@ -11,16 +11,13 @@ ApiForm::ApiForm(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    //setup the network manager
-//    networkManager = new QNetworkAccessManager(this);
-//    CreateUserRequest createUser;
-
-//    //make the connections
-//    connect(networkManager, SIGNAL(finished(QNetworkReply*)),&createUser,
-//            SLOT(CreateUserRequest::onRequestFinished(QNetworkReply*)));
-
+    //listen for the user to be created
     connect(&createUserRequest, SIGNAL(userCreated(QByteArray)),
-            this, SLOT(onPostFinished(QByteArray)));
+            this, SLOT(onUserCreated(QByteArray)));
+
+    //listen for password updates to be finished
+    connect(&updatePasswordForm, SIGNAL(passwordUpdated(QByteArray)),
+            this, SLOT(onPasswordUpdated(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -28,38 +25,16 @@ ApiForm::~ApiForm()
     delete ui;
 }
 
-void ApiForm::createUserFunc()
+
+void ApiForm::onUserCreated(QByteArray response)
 {
-//    // Setup the REST url
-//    QUrl serviceUrl = QUrl("http://localhost:8080/RestApp/rest/user/add");
-//    QByteArray postData;
-
-//    QUrl params;
-//    QUrlQuery query;
-//    query.addQueryItem("dummy",""); //bypass error described in Issue#1
-//    query.addQueryItem("name",ui->createUser_username->text());
-//    query.addQueryItem("password",ui->createUser_password->text());
-
-//    params.setQuery(query);
-
-//    postData = params.toEncoded(QUrl::RemoveFragment);
-
-//    // Call the webservice
-//    connect(networkManager, SIGNAL(finished(QNetworkReply*)),
-//            SLOT(onPostFinished(QNetworkReply*)));
-
-
-//    QNetworkRequest networkRequest(serviceUrl);
-//    networkRequest.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-
-
-//    networkManager->post(networkRequest,postData);
+    //print out response to widget.
+    ui->createUser_output->setText(response);
 }
 
-void ApiForm::onPostFinished(QByteArray response)
+void ApiForm::onPasswordUpdated(QByteArray response)
 {
-    qDebug() << response;
-    ui->createUser_output->setText(response);
+    ui->updatePassword_output->setText(response);
 }
 
 void ApiForm::on_createUser_clicked()
@@ -68,6 +43,17 @@ void ApiForm::on_createUser_clicked()
     createUserRequest.setUsername(ui->createUser_username->text());
     createUserRequest.setPassword(ui->createUser_password->text());
 
-    //call function to begin start user creation
+    //call function to start user creation
     createUserRequest.createUser();
+}
+
+void ApiForm::on_updatePassword_clicked()
+{
+    //set form attributes from UI
+    updatePasswordForm.setUsername(ui->updatePassword_username->text());
+    updatePasswordForm.setOld_password(ui->updatePassword_oldPassword->text());
+    updatePasswordForm.setNew_password(ui->updatePassword_newPassword->text());
+
+    //call function to start password update
+    updatePasswordForm.updatePassword();
 }

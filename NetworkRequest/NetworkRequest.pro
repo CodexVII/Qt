@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         apiform.cpp \
-    createuserrequest.cpp
+    createuserrequest.cpp \
+    updatepasswordform.cpp
 
 HEADERS  += apiform.h \
-    createuserrequest.h
+    createuserrequest.h \
+    updatepasswordform.h
 
 FORMS    += apiform.ui

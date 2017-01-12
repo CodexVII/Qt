@@ -27,7 +27,7 @@ void DeleteUserForm::deleteUser()
     QNetworkRequest networkRequest(api);
     networkRequest.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
 
-    //make POST call to REST update password service
+    //make POST call to REST delete user service
     networkManager->post(networkRequest,postData);
 }
 

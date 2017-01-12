@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\apiform.o
+./debug\createuserrequest.o
+./debug\updatepasswordform.o
+./debug\deleteuserform.o
+./debug\paymentform.o
+./debug\moc_apiform.o
+./debug\moc_createuserrequest.o
+./debug\moc_updatepasswordform.o
+./debug\moc_deleteuserform.o
+./debug\moc_paymentform.o
+);

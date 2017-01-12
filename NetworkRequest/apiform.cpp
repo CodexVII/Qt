@@ -22,6 +22,10 @@ ApiForm::ApiForm(QWidget *parent) :
     //listen for delete requests to be finished
     connect(&deleteUserForm, SIGNAL(userDeleted(QByteArray)),
             this, SLOT(onUserDeleted(QByteArray)));
+
+    //listen for payment requests to be finished
+    connect(&paymentForm, SIGNAL(paymentProcessed(QByteArray)),
+            this, SLOT(onPayment(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -44,6 +48,11 @@ void ApiForm::onPasswordUpdated(QByteArray response)
 void ApiForm::onUserDeleted(QByteArray response)
 {
     ui->deleteUser_output->setText(response);
+}
+
+void ApiForm::onPayment(QByteArray response)
+{
+    ui->payment_output->setText(response);
 }
 
 void ApiForm::on_createUser_clicked()
@@ -74,4 +83,16 @@ void ApiForm::on_deleteUser_clicked()
 
     //call function to start user delete
     deleteUserForm.deleteUser();
+}
+
+
+void ApiForm::on_payment_clicked()
+{
+    //set form attributes from UI
+    paymentForm.setSender(ui->payment_sender->text());
+    paymentForm.setReceiver(ui->payment_receiver->text());
+    paymentForm.setAmount((ui->payment_amount->text()).toDouble());
+
+    //call function to start payment
+    paymentForm.pay();
 }

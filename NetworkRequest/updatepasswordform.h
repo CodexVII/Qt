@@ -11,6 +11,8 @@ class UpdatePasswordForm : public QObject
 public:
     explicit UpdatePasswordForm(QObject *parent = 0);
 
+    void updatePassword();
+
     QString getNew_password() const;
     void setNew_password(const QString &value);
 
@@ -24,7 +26,7 @@ signals:
     void passwordUpdated(QByteArray);
 
 public slots:
-    void updatePassword();
+
     void responseReady(QNetworkReply*);
 
 private:

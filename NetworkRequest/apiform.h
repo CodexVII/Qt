@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "createuserrequest.h"
 #include "updatepasswordform.h"
+#include "deleteuserform.h"
 
 namespace Ui {
 class ApiForm;
@@ -20,13 +21,15 @@ public:
 
 public slots:
     //from REST request
-    void onUserCreated(QByteArray response);
-    void onPasswordUpdated(QByteArray response);
+    void onUserCreated(QByteArray);
+    void onPasswordUpdated(QByteArray);
+    void onUserDeleted(QByteArray);
 
     void on_createUser_clicked();
 
 private slots:
     void on_updatePassword_clicked();
+    void on_deleteUser_clicked();
 
 private:
     Ui::ApiForm *ui;
@@ -34,6 +37,7 @@ private:
     //Form logic for creating user
     CreateUserRequest createUserRequest;
     UpdatePasswordForm updatePasswordForm;
+    DeleteUserForm deleteUserForm;
 };
 
 #endif // APIFORM_H

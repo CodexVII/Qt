@@ -11,6 +11,8 @@ class CreateUserRequest : public QObject
 public:
     explicit CreateUserRequest(QObject *parent = 0);
 
+    void createUser();
+
     QString getRequestResult() const;
     void setRequestResult(const QString &value);
 
@@ -24,7 +26,6 @@ signals:
     void userCreated(QByteArray);
 
 public slots:
-    void createUser();
     void responseReady(QNetworkReply*);
 
 private:

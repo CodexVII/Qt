@@ -18,6 +18,10 @@ ApiForm::ApiForm(QWidget *parent) :
     //listen for password updates to be finished
     connect(&updatePasswordForm, SIGNAL(passwordUpdated(QByteArray)),
             this, SLOT(onPasswordUpdated(QByteArray)));
+
+    //listen for delete requests to be finished
+    connect(&deleteUserForm, SIGNAL(userDeleted(QByteArray)),
+            this, SLOT(onUserDeleted(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -35,6 +39,11 @@ void ApiForm::onUserCreated(QByteArray response)
 void ApiForm::onPasswordUpdated(QByteArray response)
 {
     ui->updatePassword_output->setText(response);
+}
+
+void ApiForm::onUserDeleted(QByteArray response)
+{
+    ui->deleteUser_output->setText(response);
 }
 
 void ApiForm::on_createUser_clicked()
@@ -56,4 +65,13 @@ void ApiForm::on_updatePassword_clicked()
 
     //call function to start password update
     updatePasswordForm.updatePassword();
+}
+
+void ApiForm::on_deleteUser_clicked()
+{
+    //set form attributes from UI
+    deleteUserForm.setUsername(ui->deleteUser_username->text());
+
+    //call function to start user delete
+    deleteUserForm.deleteUser();
 }

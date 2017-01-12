@@ -31,7 +31,7 @@
       <x>20</x>
       <y>20</y>
       <width>221</width>
-      <height>117</height>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -71,7 +71,7 @@
        <item row="2" column="0" colspan="2">
         <widget class="QPushButton" name="createUser">
          <property name="text">
-          <string>Create User</string>
+          <string>Create</string>
          </property>
         </widget>
        </item>
@@ -105,7 +105,7 @@
       <x>20</x>
       <y>20</y>
       <width>251</width>
-      <height>143</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -152,7 +152,7 @@
        <item row="3" column="0" colspan="2">
         <widget class="QPushButton" name="updatePassword">
          <property name="text">
-          <string>Update Password</string>
+          <string>Update</string>
          </property>
         </widget>
        </item>
@@ -160,6 +160,59 @@
      </item>
      <item>
       <widget class="QLabel" name="updatePassword_output">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>20</y>
+     <width>261</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Delete User</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>221</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QFormLayout" name="formLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Username:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="deleteUser_username"/>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QPushButton" name="deleteUser">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="deleteUser_output">
        <property name="text">
         <string/>
        </property>

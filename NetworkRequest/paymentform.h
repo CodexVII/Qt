@@ -29,7 +29,7 @@ public slots:
 
 private:
     //REST URL for the payment service
-    QUrl api;
+    QString api;
 
     //form data set by main window
     QString sender;

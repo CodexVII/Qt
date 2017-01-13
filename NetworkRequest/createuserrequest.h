@@ -30,7 +30,7 @@ public slots:
 
 private:
     //URL that goes to the REST API
-    QUrl api;
+    QString api;
 
     //contains string response from server
     QString requestResult;

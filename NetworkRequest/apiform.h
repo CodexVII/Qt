@@ -6,6 +6,7 @@
 #include "updatepasswordform.h"
 #include "deleteuserform.h"
 #include "paymentform.h"
+#include "getsingleuserform.h"
 
 namespace Ui {
 class ApiForm;
@@ -26,13 +27,14 @@ public slots:
     void onPasswordUpdated(QByteArray);
     void onUserDeleted(QByteArray);
     void onPayment(QByteArray);
+    void onUserReceived(QByteArray);
 
 private slots:
     void on_updatePassword_clicked();
     void on_deleteUser_clicked();
     void on_createUser_clicked();
-
     void on_payment_clicked();
+    void on_getUser_clicked();
 
 private:
     Ui::ApiForm *ui;
@@ -42,6 +44,7 @@ private:
     UpdatePasswordForm updatePasswordForm;
     DeleteUserForm deleteUserForm;
     PaymentForm paymentForm;
+    GetSingleUserForm getSingleUserForm;
 };
 
 #endif // APIFORM_H

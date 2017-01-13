@@ -31,7 +31,7 @@ public slots:
 
 private:
     //REST url to password update service
-    QUrl api;
+    QString api;
 
     //form data set by main window
     QString username;

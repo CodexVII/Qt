@@ -5,7 +5,7 @@ CreateUserRequest::CreateUserRequest(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = QUrl("http://localhost:8080/RestApp/rest/user/add");
+    api = "http://localhost:8080/RestApp/rest/user/add";
 
     //connect networkManager to an event for when request is finished
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),

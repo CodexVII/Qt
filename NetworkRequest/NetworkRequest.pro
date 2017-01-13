@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     createuserrequest.cpp \
     updatepasswordform.cpp \
     deleteuserform.cpp \
-    paymentform.cpp
+    paymentform.cpp \
+    getsingleuserform.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
     updatepasswordform.h \
     deleteuserform.h \
-    paymentform.h
+    paymentform.h \
+    getsingleuserform.h
 
 FORMS    += apiform.ui

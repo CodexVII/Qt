@@ -26,6 +26,10 @@ ApiForm::ApiForm(QWidget *parent) :
     //listen for payment requests to be finished
     connect(&paymentForm, SIGNAL(paymentProcessed(QByteArray)),
             this, SLOT(onPayment(QByteArray)));
+
+    //listen for get user requests to be finished
+    connect(&getSingleUserForm, SIGNAL(userReceived(QByteArray)),
+            this, SLOT(onUserReceived(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -53,6 +57,11 @@ void ApiForm::onUserDeleted(QByteArray response)
 void ApiForm::onPayment(QByteArray response)
 {
     ui->payment_output->setText(response);
+}
+
+void ApiForm::onUserReceived(QByteArray response)
+{
+    ui->getUser_output->setText(response);
 }
 
 void ApiForm::on_createUser_clicked()
@@ -95,4 +104,13 @@ void ApiForm::on_payment_clicked()
 
     //call function to start payment
     paymentForm.pay();
+}
+
+void ApiForm::on_getUser_clicked()
+{
+    //set form attributes from UI
+    getSingleUserForm.setUsername(ui->getUser_username->text());
+
+    //begin query
+    getSingleUserForm.getUser();
 }

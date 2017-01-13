@@ -23,7 +23,7 @@ public slots:
 
 private:
     //REST URL to delete user service
-    QUrl api;
+    QString api;
 
     //form data set by main window
     QString username;

@@ -4,7 +4,7 @@ DeleteUserForm::DeleteUserForm(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = QUrl("http://localhost:8080/RestApp/rest/user/delete");
+    api = "http://localhost:8080/RestApp/rest/user/delete";
 
     //listen for the request to finish and call the SLOT
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),

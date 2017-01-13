@@ -6,10 +6,12 @@ INPUT(
 ./release\deleteuserform.o
 ./release\paymentform.o
 ./release\getsingleuserform.o
+./release\multipleusersearchform.o
 ./release\moc_apiform.o
 ./release\moc_createuserrequest.o
 ./release\moc_updatepasswordform.o
 ./release\moc_deleteuserform.o
 ./release\moc_paymentform.o
 ./release\moc_getsingleuserform.o
+./release\moc_multipleusersearchform.o
 );

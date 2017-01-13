@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1158</width>
-    <height>393</height>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -93,7 +93,7 @@
      <x>290</x>
      <y>20</y>
      <width>291</width>
-     <height>181</height>
+     <height>161</height>
     </rect>
    </property>
    <property name="title">
@@ -186,7 +186,7 @@
       <x>20</x>
       <y>20</y>
       <width>221</width>
-      <height>72</height>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -304,7 +304,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Get Single User</string>
+    <string>Single User Search</string>
    </property>
    <widget class="QWidget" name="">
     <property name="geometry">
@@ -335,7 +335,7 @@
        <item row="1" column="0" colspan="2">
         <widget class="QPushButton" name="getUser">
          <property name="text">
-          <string>Query</string>
+          <string>Search</string>
          </property>
         </widget>
        </item>
@@ -346,6 +346,60 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>200</y>
+     <width>281</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Multiple User Search</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>258</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <layout class="QFormLayout" name="formLayout_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Username:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="multipleUserSearch_username"/>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QPushButton" name="multipleUserSearch">
+         <property name="text">
+          <string>Search</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="multipleUserSearch_output"/>
+     </item>
+    </layout>
+   </widget>
+   <zorder>label_11</zorder>
+   <zorder>multipleUserSearch_username</zorder>
+   <zorder>multipleUserSearch</zorder>
+   <zorder>multipleUserSearch_output</zorder>
+   <zorder></zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

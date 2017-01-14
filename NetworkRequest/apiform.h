@@ -21,7 +21,6 @@ class ApiForm : public QWidget
 public:
     explicit ApiForm(QWidget *parent = 0);
     ~ApiForm();
-    void createUserFunc();
 
 public slots:
     //from REST request

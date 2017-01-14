@@ -32,6 +32,7 @@ void LoginForm::login()
 
 void LoginForm::responseReady(QNetworkReply *reply)
 {
+
     QByteArray response;
     response = reply->readAll();
     emit(loginComplete(response));

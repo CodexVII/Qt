@@ -104,7 +104,6 @@ void ApiForm::on_deleteUser_clicked()
     deleteUserForm.deleteUser();
 }
 
-
 void ApiForm::on_payment_clicked()
 {
     //set form attributes from UI

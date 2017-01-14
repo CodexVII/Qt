@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     deleteuserform.cpp \
     paymentform.cpp \
     getsingleuserform.cpp \
-    multipleusersearchform.cpp
+    multipleusersearchform.cpp \
+    loginform.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
@@ -27,7 +28,8 @@ HEADERS  += apiform.h \
     deleteuserform.h \
     paymentform.h \
     getsingleuserform.h \
-    multipleusersearchform.h
+    multipleusersearchform.h \
+    loginform.h
 
 FORMS    += apiform.ui
 

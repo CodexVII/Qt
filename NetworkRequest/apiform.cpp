@@ -34,6 +34,10 @@ ApiForm::ApiForm(QWidget *parent) :
     //listen for multiple search query to be finished
     connect(&multipleUserSearchForm, SIGNAL(searchComplete(QByteArray)),
             this, SLOT(onMultipleUserSearchComplete(QByteArray)));
+
+    //listen for login request to finish
+    connect(&loginForm, SIGNAL(loginComplete(QByteArray)),
+            this,SLOT(onLoginComplete(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -73,6 +77,9 @@ void ApiForm::onMultipleUserSearchComplete(QByteArray response)
     ui->multipleUserSearch_output->setText(response);
 }
 
+void ApiForm::onLoginComplete(QByteArray response){
+    ui->login_output->setText(response);
+}
 
 void ApiForm::on_createUser_clicked()
 {
@@ -131,4 +138,14 @@ void ApiForm::on_multipleUserSearch_clicked()
 
     //begin query
     multipleUserSearchForm.searchUsers();
+}
+
+void ApiForm::on_login_clicked()
+{
+    //set form attributes from UI
+    loginForm.setUsername(ui->login_username->text());
+    loginForm.setPassword(ui->login_password->text());
+
+    //login
+    loginForm.login();
 }

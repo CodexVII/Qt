@@ -30,3 +30,5 @@ HEADERS  += apiform.h \
     multipleusersearchform.h
 
 FORMS    += apiform.ui
+
+RC_FILE = appicon.rc

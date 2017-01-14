@@ -8,7 +8,6 @@
 #include "paymentform.h"
 #include "getsingleuserform.h"
 #include "multipleusersearchform.h"
-#include "loginform.h"
 
 namespace Ui {
 class ApiForm;
@@ -30,7 +29,6 @@ public slots:
     void onPayment(QByteArray);
     void onUserReceived(QByteArray);
     void onMultipleUserSearchComplete(QByteArray);
-    void onLoginComplete(QByteArray);
 
 private slots:
     void on_updatePassword_clicked();
@@ -41,19 +39,16 @@ private slots:
 
     void on_multipleUserSearch_clicked();
 
-    void on_login_clicked();
-
 private:
     Ui::ApiForm *ui;
 
-    //Form logic for creating user
+    //Form instances accessible from UI
     CreateUserRequest createUserRequest;
     UpdatePasswordForm updatePasswordForm;
     DeleteUserForm deleteUserForm;
     PaymentForm paymentForm;
     GetSingleUserForm getSingleUserForm;
     MultipleUserSearchForm multipleUserSearchForm;
-    LoginForm loginForm;
 };
 
 #endif // APIFORM_H

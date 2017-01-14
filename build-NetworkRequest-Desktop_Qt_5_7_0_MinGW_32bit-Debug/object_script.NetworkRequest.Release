@@ -9,6 +9,7 @@ INPUT(
 ./release\multipleusersearchform.o
 ./release\loginform.o
 ./release\loginwindow.o
+./release\loginregisterwindow.o
 ./release\moc_apiform.o
 ./release\moc_createuserrequest.o
 ./release\moc_updatepasswordform.o
@@ -18,4 +19,5 @@ INPUT(
 ./release\moc_multipleusersearchform.o
 ./release\moc_loginform.o
 ./release\moc_loginwindow.o
+./release\moc_loginregisterwindow.o
 );

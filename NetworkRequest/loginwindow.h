@@ -25,6 +25,8 @@ private slots:
 
 private:
     Ui::LoginWindow *ui;
+
+    //Login form instance accessible from UI
     LoginForm loginForm;
 
     //New Window to open once successful

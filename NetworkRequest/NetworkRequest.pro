@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     getsingleuserform.cpp \
     multipleusersearchform.cpp \
     loginform.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    loginregisterwindow.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
@@ -31,9 +32,11 @@ HEADERS  += apiform.h \
     getsingleuserform.h \
     multipleusersearchform.h \
     loginform.h \
-    loginwindow.h
+    loginwindow.h \
+    loginregisterwindow.h
 
 FORMS    += apiform.ui \
-    loginwindow.ui
+    loginwindow.ui \
+    loginregisterwindow.ui
 
 RC_FILE = appicon.rc

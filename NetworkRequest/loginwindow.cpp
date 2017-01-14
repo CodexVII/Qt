@@ -25,6 +25,7 @@ void LoginWindow::onLoginComplete(QByteArray response){
     //display result to user
     ui->login_output->setText(response);
 
+    //check server response
     if(response.contains("success")){
         hide();
         apiForm.show();

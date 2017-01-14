@@ -9,6 +9,7 @@ INPUT(
 ./debug\multipleusersearchform.o
 ./debug\loginform.o
 ./debug\loginwindow.o
+./debug\loginregisterwindow.o
 ./debug\moc_apiform.o
 ./debug\moc_createuserrequest.o
 ./debug\moc_updatepasswordform.o
@@ -18,4 +19,5 @@ INPUT(
 ./debug\moc_multipleusersearchform.o
 ./debug\moc_loginform.o
 ./debug\moc_loginwindow.o
+./debug\moc_loginregisterwindow.o
 );

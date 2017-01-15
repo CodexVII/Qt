@@ -27,6 +27,7 @@ LoginRegisterWindow::~LoginRegisterWindow()
  */
 void LoginRegisterWindow::onLoginComplete(QByteArray response){
     //display result to user
+    ui->login_output->clear();  //clear first because css can still exist
     ui->login_output->setText(response);
 
     //check server response
@@ -39,6 +40,7 @@ void LoginRegisterWindow::onLoginComplete(QByteArray response){
 void LoginRegisterWindow::onRegisterComplete(QByteArray response)
 {
     //display result to user
+    ui->createUser_output->clear();
     ui->createUser_output->setText(response);
 
     //check server response

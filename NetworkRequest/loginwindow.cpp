@@ -23,6 +23,7 @@ LoginWindow::~LoginWindow()
  */
 void LoginWindow::onLoginComplete(QByteArray response){
     //display result to user
+    ui->login_output->clear();
     ui->login_output->setText(response);
 
     //check server response

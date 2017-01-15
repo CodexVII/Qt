@@ -284,7 +284,6 @@ release/moc_apiform.cpp: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget \
 		../NetworkRequest/paymentform.h \
 		../NetworkRequest/getsingleuserform.h \
 		../NetworkRequest/multipleusersearchform.h \
-		../NetworkRequest/loginform.h \
 		../NetworkRequest/apiform.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -IC:/Users/keita/OneDrive/Documents/GitHub/Qt/NetworkRequest -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\NetworkRequest\apiform.h -o release\moc_apiform.cpp
@@ -1224,6 +1223,7 @@ release/moc_loginregisterwindow.cpp: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWid
 		../NetworkRequest/paymentform.h \
 		../NetworkRequest/getsingleuserform.h \
 		../NetworkRequest/multipleusersearchform.h \
+		../NetworkRequest/loginwindow.h \
 		../NetworkRequest/loginregisterwindow.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -IC:/Users/keita/OneDrive/Documents/GitHub/Qt/NetworkRequest -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\NetworkRequest\loginregisterwindow.h -o release\moc_loginregisterwindow.cpp
@@ -1389,8 +1389,8 @@ release/main.o: ../NetworkRequest/main.cpp ../NetworkRequest/apiform.h \
 		../NetworkRequest/paymentform.h \
 		../NetworkRequest/getsingleuserform.h \
 		../NetworkRequest/multipleusersearchform.h \
-		../NetworkRequest/loginform.h \
 		../NetworkRequest/loginwindow.h \
+		../NetworkRequest/loginform.h \
 		../NetworkRequest/loginregisterwindow.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qapplication.h \
@@ -1533,7 +1533,6 @@ release/apiform.o: ../NetworkRequest/apiform.cpp ../NetworkRequest/apiform.h \
 		../NetworkRequest/paymentform.h \
 		../NetworkRequest/getsingleuserform.h \
 		../NetworkRequest/multipleusersearchform.h \
-		../NetworkRequest/loginform.h \
 		ui_apiform.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\apiform.o ..\NetworkRequest\apiform.cpp
@@ -2467,6 +2466,7 @@ release/loginregisterwindow.o: ../NetworkRequest/loginregisterwindow.cpp ../Netw
 		../NetworkRequest/paymentform.h \
 		../NetworkRequest/getsingleuserform.h \
 		../NetworkRequest/multipleusersearchform.h \
+		../NetworkRequest/loginwindow.h \
 		ui_loginregisterwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\loginregisterwindow.o ..\NetworkRequest\loginregisterwindow.cpp
 

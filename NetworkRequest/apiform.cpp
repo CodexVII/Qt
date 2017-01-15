@@ -45,31 +45,37 @@ ApiForm::~ApiForm()
 void ApiForm::onUserCreated(QByteArray response)
 {
     //print out response to widget.
+    ui->createUser_output->clear();
     ui->createUser_output->setText(response);
 }
 
 void ApiForm::onPasswordUpdated(QByteArray response)
 {
+    ui->updatePassword_output->clear();
     ui->updatePassword_output->setText(response);
 }
 
 void ApiForm::onUserDeleted(QByteArray response)
 {
+    ui->deleteUser_output->clear();
     ui->deleteUser_output->setText(response);
 }
 
 void ApiForm::onPayment(QByteArray response)
 {
+    ui->payment_output->clear();
     ui->payment_output->setText(response);
 }
 
 void ApiForm::onUserReceived(QByteArray response)
 {
+    ui->getUser_output->clear();
     ui->getUser_output->setText(response);
 }
 
 void ApiForm::onMultipleUserSearchComplete(QByteArray response)
 {
+    ui->multipleUserSearch_output->clear();
     ui->multipleUserSearch_output->setText(response);
 }
 

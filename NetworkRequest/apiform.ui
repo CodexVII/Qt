@@ -11,13 +11,16 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ApiForm</string>
+   <string>REST API Client</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_8">
+   <property name="horizontalSpacing">
+    <number>9</number>
+   </property>
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -126,7 +129,7 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="3" column="0" colspan="2">
             <widget class="QPushButton" name="updatePassword">
              <property name="text">
               <string>Update</string>

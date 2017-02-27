@@ -4,7 +4,8 @@ GetSingleUserForm::GetSingleUserForm(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/get";
+    api = USER_API;
+    api.append("get");
 
     //listen for request to finish to process the response
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),

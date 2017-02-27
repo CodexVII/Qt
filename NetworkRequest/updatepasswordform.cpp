@@ -4,11 +4,14 @@ UpdatePasswordForm::UpdatePasswordForm(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/update/password";
+    api = USER_API;
+    api.append("update/password");
 
     //listen for the request to finish and call the SLOT
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(responseReady(QNetworkReply*)));
+
+
 }
 
 void UpdatePasswordForm::updatePassword()

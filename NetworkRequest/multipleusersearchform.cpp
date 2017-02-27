@@ -4,7 +4,8 @@ MultipleUserSearchForm::MultipleUserSearchForm(QObject *parent) : QObject(parent
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/search";
+    api = USER_API;
+    api.append("search");
 
     //listen for the request to finish
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),
@@ -20,6 +21,7 @@ void MultipleUserSearchForm::searchUsers()
 
     //call REST service
     networkManager->get(networkRequest);
+
 }
 
 void MultipleUserSearchForm::responseReady(QNetworkReply *reply)

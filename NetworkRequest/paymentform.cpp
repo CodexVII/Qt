@@ -4,7 +4,8 @@ PaymentForm::PaymentForm(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/pay";
+    api = PAYMENT_API;
+    api.append("pay");
 
     //listen for the request to finish
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),

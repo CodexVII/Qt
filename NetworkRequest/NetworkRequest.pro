@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = NetworkRequest
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         apiform.cpp \
     createuserrequest.cpp \
@@ -22,7 +21,9 @@ SOURCES += main.cpp\
     multipleusersearchform.cpp \
     loginform.cpp \
     loginwindow.cpp \
-    loginregisterwindow.cpp
+    loginregisterwindow.cpp \
+    transactionhistoryform.cpp \
+    transaction.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
@@ -33,10 +34,15 @@ HEADERS  += apiform.h \
     multipleusersearchform.h \
     loginform.h \
     loginwindow.h \
-    loginregisterwindow.h
+    loginregisterwindow.h \
+    network.h \
+    transactionhistoryform.h \
+    transaction.h
 
 FORMS    += apiform.ui \
     loginwindow.ui \
     loginregisterwindow.ui
 
 RC_FILE = appicon.rc
+
+OPENSSL_LIBS='-L/opt/ssl/lib -lssl -lcrypto' ./configure -no-openssl

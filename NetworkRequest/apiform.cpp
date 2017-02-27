@@ -1,6 +1,12 @@
 #include "apiform.h"
 #include "ui_apiform.h"
 #include <iostream>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonValueRef>
+#include <QJsonArray>
+#include <QJsonObject>
+#include "transaction.h"
 
 #include <QDebug>
 using namespace std;
@@ -34,6 +40,10 @@ ApiForm::ApiForm(QWidget *parent) :
     //listen for multiple search query to be finished
     connect(&multipleUserSearchForm, SIGNAL(searchComplete(QByteArray)),
             this, SLOT(onMultipleUserSearchComplete(QByteArray)));
+
+    //listen for transaction history query to be finished
+    connect(&transactionHistoryForm, SIGNAL(transactionHistoryReceived(QByteArray)),
+            this, SLOT(onTransactionHistoryReceived(QByteArray)));
 }
 
 ApiForm::~ApiForm()
@@ -41,7 +51,9 @@ ApiForm::~ApiForm()
     delete ui;
 }
 
-
+////////////////////////////////////////////////////////////////
+/// REST REQUEST COMPLETE SLOTS
+////////////////////////////////////////////////////////////////
 void ApiForm::onUserCreated(QByteArray response)
 {
     //print out response to widget.
@@ -79,6 +91,38 @@ void ApiForm::onMultipleUserSearchComplete(QByteArray response)
     ui->multipleUserSearch_output->setText(response);
 }
 
+void ApiForm::onTransactionHistoryReceived(QByteArray response)
+{
+
+    QJsonDocument doc = QJsonDocument::fromJson(response);
+    QJsonArray array = doc.array(); // get the array of json objects in the array
+
+    // Take in json string store in doc
+    // decide whether it's array or single object
+    // create method that does this
+    Transaction transaction;
+    ui->tableWidget->clearContents();
+    ui->tableWidget->setRowCount(array.size());
+    for(int i=0; i<array.size(); i++){
+        QJsonObject object = array[i].toObject();
+        transaction.setId(object["id"].toInt());
+        transaction.setTimestamp(object["timestamp"].toString());
+        transaction.setSender(object["sender"].toString());
+        transaction.setReceiver(object["receiver"].toString());
+        transaction.setAmount(object["amount"].toDouble());
+
+        ui->tableWidget->setItem(i, 0, new QTableWidgetItem(QString::number(transaction.getId())));
+        ui->tableWidget->setItem(i, 1, new QTableWidgetItem(transaction.getTimestamp()));
+        ui->tableWidget->setItem(i, 2, new QTableWidgetItem(transaction.getSender()));
+        ui->tableWidget->setItem(i, 3, new QTableWidgetItem(transaction.getReceiver()));
+        ui->tableWidget->setItem(i, 4, new QTableWidgetItem(QString::number(transaction.getAmount())));
+    }
+}
+
+
+/////////////////////////////////////////////////////
+/// UI ON_CLICKED SLOTS
+/////////////////////////////////////////////////////
 void ApiForm::on_createUser_clicked()
 {
     //set form object's required fields
@@ -136,4 +180,13 @@ void ApiForm::on_multipleUserSearch_clicked()
 
     //begin query
     multipleUserSearchForm.searchUsers();
+}
+
+void ApiForm::on_getTransactionHistory_clicked()
+{
+    // set username from UI
+    transactionHistoryForm.setUsername(ui->getTransactionHistory_username->text());
+
+    //begin query
+    transactionHistoryForm.getTransactionHistory();
 }

@@ -1,11 +1,14 @@
 #include "createuserrequest.h"
-
+#include <QDebug>
 using namespace std;
 CreateUserRequest::CreateUserRequest(QObject *parent) : QObject(parent)
 {
     //REST API connection
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/add";
+    api = USER_API;
+    api.append("add");
+
+    qDebug() << api;
 
     //connect networkManager to an event for when request is finished
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),

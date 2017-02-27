@@ -4,6 +4,7 @@
 #include <QObject>
 #include "QNetworkReply"
 #include "QUrlQuery"
+#include "network.h"
 
 class LoginForm : public QObject
 {

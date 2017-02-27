@@ -1,9 +1,12 @@
 #include "loginform.h"
-
+#include <QDebug>
 LoginForm::LoginForm(QObject *parent) : QObject(parent)
 {
     networkManager = new QNetworkAccessManager(this);
-    api = "http://localhost:8080/RestApp/rest/user/validate";
+    api = USER_API;
+    api.append("validate");
+
+    qDebug() << api;
 
     connect(networkManager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(responseReady(QNetworkReply*)));

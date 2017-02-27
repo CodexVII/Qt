@@ -10,6 +10,8 @@ INPUT(
 ./debug\loginform.o
 ./debug\loginwindow.o
 ./debug\loginregisterwindow.o
+./debug\transactionhistoryform.o
+./debug\transaction.o
 ./debug\moc_apiform.o
 ./debug\moc_createuserrequest.o
 ./debug\moc_updatepasswordform.o
@@ -20,4 +22,5 @@ INPUT(
 ./debug\moc_loginform.o
 ./debug\moc_loginwindow.o
 ./debug\moc_loginregisterwindow.o
+./debug\moc_transactionhistoryform.o
 );

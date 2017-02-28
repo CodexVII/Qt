@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ApiForm</class>
- <widget class="QWidget" name="ApiForm">
+ <widget class="QMainWindow" name="ApiForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,410 +13,435 @@
   <property name="windowTitle">
    <string>REST API Client</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_8">
-   <property name="horizontalSpacing">
-    <number>9</number>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="currentIndex">
+    <number>6</number>
    </property>
-   <item row="0" column="0">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>5</number>
-     </property>
-     <widget class="QWidget" name="tab">
-      <attribute name="title">
-       <string>User Creation</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_9">
-         <item>
-          <layout class="QFormLayout" name="formLayout">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Username:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="createUser_username">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Password:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="createUser_password">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QPushButton" name="createUser">
-             <property name="text">
-              <string>Create</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>User Creation</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <widget class="QTextBrowser" name="createUser_output">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="createUser_username">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="createUser_password">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="createUser">
+           <property name="text">
+            <string>Create</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QTextBrowser" name="createUser_output">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Password Update</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <layout class="QFormLayout" name="formLayout_2">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Username:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="updatePassword_username"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>Old Password:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="updatePassword_oldPassword">
-             <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="text">
-              <string>New Password:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="updatePassword_newPassword">
-             <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QPushButton" name="updatePassword">
-             <property name="text">
-              <string>Update</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Password Update</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <widget class="QTextBrowser" name="updatePassword_output">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="updatePassword_username"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Old Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="updatePassword_oldPassword">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>New Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="updatePassword_newPassword">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QPushButton" name="updatePassword">
+           <property name="text">
+            <string>Update</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QTextBrowser" name="updatePassword_output">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tab_3">
-      <attribute name="title">
-       <string>Delete User</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <layout class="QFormLayout" name="formLayout_3">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="text">
-              <string>Username:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="deleteUser_username"/>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QPushButton" name="deleteUser">
-             <property name="text">
-              <string>Delete</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Delete User</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QFormLayout" name="formLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <widget class="QTextBrowser" name="deleteUser_output">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="deleteUser_username"/>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QPushButton" name="deleteUser">
+           <property name="text">
+            <string>Delete</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QTextBrowser" name="deleteUser_output">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tab_4">
-      <attribute name="title">
-       <string>Payment</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_14">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <layout class="QFormLayout" name="formLayout_11">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Sender:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="payment_sender"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>Receiver:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="payment_receiver"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Amount</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="payment_amount"/>
-           </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QPushButton" name="payment">
-             <property name="text">
-              <string>Pay</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Payment</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_14">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QFormLayout" name="formLayout_11">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Sender:</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <widget class="QTextBrowser" name="payment_output">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="payment_sender"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Receiver:</string>
            </property>
-           <property name="styleSheet">
-            <string notr="true"/>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="payment_receiver"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Amount</string>
            </property>
-           <property name="html">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="payment_amount"/>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QPushButton" name="payment">
+           <property name="text">
+            <string>Pay</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="payment_output">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_7">
-      <attribute name="title">
-       <string>Transaction History</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_12">
-         <property name="text">
-          <string>Username:</string>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="getTransactionHistory_username">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QPushButton" name="getTransactionHistory">
-         <property name="text">
-          <string>Search</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="2">
-        <widget class="QTableWidget" name="tableWidget">
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <column>
-          <property name="text">
-           <string>Id</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Timestamp</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Receiver</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Sender</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Amount</string>
-          </property>
-         </column>
         </widget>
        </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tab_5">
-      <attribute name="title">
-       <string>Multiple User Search</string>
-      </attribute>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>11</y>
-         <width>52</width>
-         <height>16</height>
-        </rect>
-       </property>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_7">
+    <attribute name="title">
+     <string>Transaction History</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_12">
        <property name="text">
         <string>Username:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="multipleUserSearch_username">
-       <property name="geometry">
-        <rect>
-         <x>273</x>
-         <y>11</y>
-         <width>108</width>
-         <height>22</height>
-        </rect>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="getTransactionHistory_username">
+       <property name="text">
+        <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="multipleUserSearch">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>39</y>
-         <width>80</width>
-         <height>21</height>
-        </rect>
-       </property>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QPushButton" name="getTransactionHistory">
        <property name="text">
         <string>Search</string>
        </property>
       </widget>
-      <widget class="QTableWidget" name="tableWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>66</y>
-         <width>256</width>
-         <height>165</height>
-        </rect>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Timestamp</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Receiver</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Sender</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Amount</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>Multiple User Search</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Username:</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QWidget" name="tab_6">
-      <attribute name="title">
-       <string>Single User Search</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_7">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <item>
-          <layout class="QFormLayout" name="formLayout_5">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_10">
-             <property name="text">
-              <string>Username:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="getUser_username">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QPushButton" name="getUser">
-             <property name="text">
-              <string>Search</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QTextBrowser" name="getUser_output">
-           <property name="enabled">
-            <bool>true</bool>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="multipleUserSearch_username"/>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QTableWidget" name="multipleUserSearch_table">
+       <column>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Username</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Password</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Balance</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QPushButton" name="multipleUserSearch">
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_6">
+    <attribute name="title">
+     <string>Single User Search</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <layout class="QFormLayout" name="formLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Username:</string>
            </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="getUser_username">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QPushButton" name="getUser">
+           <property name="text">
+            <string>Search</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QTextBrowser" name="getUser_output">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-    </widget>
-   </item>
-  </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>723</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionBenchmark"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuMenu"/>
+  </widget>
+  <action name="actionBenchmark">
+   <property name="text">
+    <string>Benchmark</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

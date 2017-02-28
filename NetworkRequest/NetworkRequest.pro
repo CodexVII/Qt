@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     loginwindow.cpp \
     loginregisterwindow.cpp \
     transactionhistoryform.cpp \
-    transaction.cpp
+    transaction.cpp \
+    benchmark.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
@@ -37,11 +38,13 @@ HEADERS  += apiform.h \
     loginregisterwindow.h \
     network.h \
     transactionhistoryform.h \
-    transaction.h
+    transaction.h \
+    benchmark.h
 
 FORMS    += apiform.ui \
     loginwindow.ui \
-    loginregisterwindow.ui
+    loginregisterwindow.ui \
+    benchmark.ui
 
 RC_FILE = appicon.rc
 

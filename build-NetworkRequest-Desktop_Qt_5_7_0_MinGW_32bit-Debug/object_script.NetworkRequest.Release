@@ -12,6 +12,7 @@ INPUT(
 ./release\loginregisterwindow.o
 ./release\transactionhistoryform.o
 ./release\transaction.o
+./release\benchmark.o
 ./release\moc_apiform.o
 ./release\moc_createuserrequest.o
 ./release\moc_updatepasswordform.o
@@ -23,4 +24,5 @@ INPUT(
 ./release\moc_loginwindow.o
 ./release\moc_loginregisterwindow.o
 ./release\moc_transactionhistoryform.o
+./release\moc_benchmark.o
 );

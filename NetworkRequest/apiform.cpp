@@ -11,8 +11,8 @@
 #include <QDebug>
 using namespace std;
 
-ApiForm::ApiForm(QWidget *parent) :
-    QWidget(parent),
+ApiForm::ApiForm(QMainWindow *parent) :
+    QMainWindow(parent),
     ui(new Ui::ApiForm)
 {
     ui->setupUi(this);
@@ -83,12 +83,33 @@ void ApiForm::onUserReceived(QByteArray response)
 {
     ui->getUser_output->clear();
     ui->getUser_output->setText(response);
+
+    QJsonObject object = QJsonDocument::fromJson(response).object();
+
+    ui->getUser_output->setText(QString("Id: %1\n"
+                         "Username: %2\n"
+                         "Password: %3\n"
+                         "Balance: %4").arg(  QString::number(object["id"].toInt()),
+                                object["username"].toString(),
+                                object["password"].toString(),
+                                QString::number(object["balance"].toDouble())));
 }
 
 void ApiForm::onMultipleUserSearchComplete(QByteArray response)
 {
-    ui->multipleUserSearch_output->clear();
-    ui->multipleUserSearch_output->setText(response);
+    QJsonDocument doc = QJsonDocument::fromJson(response);
+    QJsonArray array = doc.array();
+
+    ui->multipleUserSearch_table->clearContents();
+    ui->multipleUserSearch_table->setRowCount(array.size());
+
+    for(int i=0; i<array.size(); i++){
+        QJsonObject object = array[i].toObject();
+        ui->multipleUserSearch_table->setItem(i, 0, new QTableWidgetItem(QString::number(object["id"].toInt())));
+        ui->multipleUserSearch_table->setItem(i, 1, new QTableWidgetItem(object["username"].toString()));
+        ui->multipleUserSearch_table->setItem(i, 2, new QTableWidgetItem(object["password"].toString()));
+        ui->multipleUserSearch_table->setItem(i, 3, new QTableWidgetItem(QString::number(object["balance"].toDouble())));
+    }
 }
 
 void ApiForm::onTransactionHistoryReceived(QByteArray response)

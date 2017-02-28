@@ -1,7 +1,7 @@
 #ifndef APIFORM_H
 #define APIFORM_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include "createuserrequest.h"
 #include "updatepasswordform.h"
 #include "deleteuserform.h"
@@ -14,12 +14,12 @@ namespace Ui {
 class ApiForm;
 }
 
-class ApiForm : public QWidget
+class ApiForm : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit ApiForm(QWidget *parent = 0);
+    explicit ApiForm(QMainWindow *parent = 0);
     ~ApiForm();
 
 public slots:

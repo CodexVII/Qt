@@ -1,6 +1,7 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
+#include <QMainWindow>
 #include <QWidget>
 #include "loginform.h"
 #include "apiform.h"

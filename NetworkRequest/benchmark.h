@@ -32,8 +32,8 @@ private slots:
 
 private:
     Ui::Benchmark *ui;
-
-    BenchmarkWorker worker;
+    QThread *thread;
+    BenchmarkWorker *worker;
 };
 
 #endif // BENCHMARK_H

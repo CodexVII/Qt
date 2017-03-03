@@ -8,13 +8,13 @@
 #include <QRegularExpression>
 #include <QHostInfo>
 #include <QNetworkAccessManager>
-#include "network.h"
 
+#include "network.h"
 class BenchmarkWorker : public QObject
 {
     Q_OBJECT
 public:
-    explicit BenchmarkWorker(QObject *parent = 0);
+    explicit BenchmarkWorker(int iteration, QObject *parent = 0);
     ~BenchmarkWorker();
     void createUser(QString username);
     void deleteUser(QString username);
@@ -24,6 +24,7 @@ public:
     void getTransactionHistory();
     void login();
     void updatePassword();
+
     void expressBenchmark();
     void targettedBenchmark();
     void delay(int ms);
@@ -32,15 +33,25 @@ public:
     int getLimit() const;
     void setLimit(int value);
 
+    bool getExpress() const;
+    void setExpress(bool value);
+
 signals:
     void waitOnResponse();
+    void finished();
+
+
+public slots:
+    void run();
 
 private slots:
     void onRequestFinished();
     void beginWaiting();
 
+
 private:
     bool advance = true;
+    bool express = true;
     int limit = 0;
     QString hostname;
 

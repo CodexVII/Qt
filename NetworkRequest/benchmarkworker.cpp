@@ -1,7 +1,8 @@
 #include "benchmarkworker.h"
 #include <QCoreApplication>
-BenchmarkWorker::BenchmarkWorker(QObject *parent) : QObject(parent)
+BenchmarkWorker::BenchmarkWorker(int iteration, QObject *parent) : QObject(parent)
 {
+        qDebug() << QString::number(iteration);
         networkManager = new QNetworkAccessManager(this);
         hostname = QHostInfo::localHostName();
 
@@ -167,12 +168,25 @@ void BenchmarkWorker::updatePassword()
     emit(waitOnResponse());
 }
 
+void BenchmarkWorker::run()
+{
+    //if express
+    //else target
+    if(express){
+        expressBenchmark();
+        qDebug() << "Doing express";
+    }else{
+        targettedBenchmark();
+    }
+    emit(finished());
+}
 
 void BenchmarkWorker::expressBenchmark()
 {
     for(int i=0; i<limit; i++){
         // update the progress bar
 //        ui->progressBar->setValue(i);
+        qDebug() << "At expresss iter" + QString::number(i);
         createUser(hostname);
         login();
         getUser();
@@ -273,6 +287,16 @@ void BenchmarkWorker::beginWaiting()
     while(!advance){
         delay(25);
     }
+}
+
+bool BenchmarkWorker::getExpress() const
+{
+    return express;
+}
+
+void BenchmarkWorker::setExpress(bool value)
+{
+    express = value;
 }
 
 int BenchmarkWorker::getLimit() const

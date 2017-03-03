@@ -1,6 +1,8 @@
 #include "benchmark.h"
 #include "ui_benchmark.h"
 #include <QDebug>
+#include <QThread>
+
 #include "benchmark.h"
 Benchmark::Benchmark(QWidget *parent) :
     QWidget(parent),
@@ -10,15 +12,7 @@ Benchmark::Benchmark(QWidget *parent) :
     ui->progressBar->hide();
     ui->pushButton_2->setEnabled(false);
 
-    //NETWORK
-//    networkManager = new QNetworkAccessManager(this);
-//    hostname = QHostInfo::localHostName();
 
-//    connect(networkManager, SIGNAL(finished(QNetworkReply*)),
-//            this, SLOT(onRequestFinished()));
-
-//    connect(this, SIGNAL(waitOnResponse()),
-//            this, SLOT(beginWaiting()));
 }
 
 
@@ -42,20 +36,29 @@ void Benchmark::on_pushButton_clicked()
     ui->pushButton_2->setEnabled(true);
     ui->progressBar->setMaximum(ui->horizontalSlider->value());
 
-    worker.setLimit(ui->horizontalSlider->value());
+    thread = new QThread;
+    worker = new BenchmarkWorker(ui->horizontalSlider->value());
+    worker->moveToThread(thread);
+
+    connect(thread, SIGNAL(started()), worker, SLOT(run()));
+    connect(worker, SIGNAL(finished()), thread, SLOT(quit()));
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+    connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
+
+    worker->setLimit(ui->horizontalSlider->value());
 //    limit = ui->horizontalSlider->value();
+    worker->setExpress(true);
     if(ui->radioButton->isChecked()){
-          worker.expressBenchmark();
+          thread->start();
     }else{
 //        targettedBenchmark();
     }
-
-    ui->pushButton->setEnabled(true);
-    ui->pushButton_2->setEnabled(false);
 }
-
 
 void Benchmark::on_pushButton_2_clicked()
 {
-//    limit = 0;
+    ui->pushButton->setEnabled(true);
+    ui->pushButton_2->setEnabled(false);
+    worker->setLimit(0);
 }
+

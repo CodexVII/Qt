@@ -14,7 +14,7 @@
    <enum>Qt::NoContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Benchmark</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QTextBrowser{
@@ -177,6 +177,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>Cancel Benchmark</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -240,12 +247,12 @@ p, li { white-space: pre-wrap; }
       </item>
       <item>
        <property name="text">
-        <string>User - Get (Single User Search)</string>
+        <string>User - Get (Single User)</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>User - Search (Multiple User Search)</string>
+        <string>User - Search (Multiple Users)</string>
        </property>
       </item>
       <item>
@@ -303,8 +310,8 @@ p, li { white-space: pre-wrap; }
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>79</y>
+     <x>613</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
      <x>623</x>
@@ -399,8 +406,8 @@ p, li { white-space: pre-wrap; }
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>574</x>
-     <y>110</y>
+     <x>575</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>536</x>

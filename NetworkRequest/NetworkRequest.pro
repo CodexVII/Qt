@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     loginregisterwindow.cpp \
     transactionhistoryform.cpp \
     transaction.cpp \
-    benchmark.cpp
+    benchmark.cpp \
+    benchmarkworker.cpp
 
 HEADERS  += apiform.h \
     createuserrequest.h \
@@ -39,7 +40,8 @@ HEADERS  += apiform.h \
     network.h \
     transactionhistoryform.h \
     transaction.h \
-    benchmark.h
+    benchmark.h \
+    benchmarkworker.h
 
 FORMS    += apiform.ui \
     loginwindow.ui \

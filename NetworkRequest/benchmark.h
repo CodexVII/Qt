@@ -5,6 +5,8 @@
 #include <QUrlQuery>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
+#include <QRegularExpression>
+#include <QHostInfo>
 
 #include "network.h"
 
@@ -19,8 +21,8 @@ class Benchmark : public QWidget
 public:
     explicit Benchmark(QWidget *parent = 0);
     ~Benchmark();
-    void createUser(QString username = "BenchMark");
-    void deleteUser(QString username = "BenchMark");
+    void createUser(QString username);
+    void deleteUser(QString username);
     void getUser();
     void searchUsers();
     void pay();
@@ -28,6 +30,7 @@ public:
     void login();
     void updatePassword();
     void expressBenchmark();
+    void targettedBenchmark();
     void delay(int ms);
     void updateNetworkSlot();
 
@@ -39,10 +42,14 @@ private slots:
     void onRequestFinished();
     void beginWaiting();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Benchmark *ui;
 
     bool advance = true;
+    int limit = 0;
+    QString hostname;
 
     QNetworkAccessManager *networkManager;
 };

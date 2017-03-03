@@ -2,7 +2,14 @@
 #include <QCoreApplication>
 BenchmarkWorker::BenchmarkWorker(QObject *parent) : QObject(parent)
 {
+        networkManager = new QNetworkAccessManager(this);
+        hostname = QHostInfo::localHostName();
 
+        connect(networkManager, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(onRequestFinished()));
+
+        connect(this, SIGNAL(waitOnResponse()),
+                this, SLOT(beginWaiting()));
 }
 
 
@@ -266,4 +273,14 @@ void BenchmarkWorker::beginWaiting()
     while(!advance){
         delay(25);
     }
+}
+
+int BenchmarkWorker::getLimit() const
+{
+    return limit;
+}
+
+void BenchmarkWorker::setLimit(int value)
+{
+    limit = value;
 }

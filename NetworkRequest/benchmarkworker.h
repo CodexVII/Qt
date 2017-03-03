@@ -29,6 +29,9 @@ public:
     void delay(int ms);
     void updateNetworkSlot();
 
+    int getLimit() const;
+    void setLimit(int value);
+
 signals:
     void waitOnResponse();
 

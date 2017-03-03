@@ -36,29 +36,71 @@ void Benchmark::on_pushButton_clicked()
     ui->pushButton_2->setEnabled(true);
     ui->progressBar->setMaximum(ui->horizontalSlider->value());
 
-    thread = new QThread;
-    worker = new BenchmarkWorker(ui->horizontalSlider->value());
-    worker->moveToThread(thread);
+    int instances = ui->horizontalSlider_2->value();
+    // clear previous runs in case
+    worker.clear();
+    thread.clear();
 
-    connect(thread, SIGNAL(started()), worker, SLOT(run()));
-    connect(worker, SIGNAL(finished()), thread, SLOT(quit()));
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-    connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
+    // allocate memory
+    thread.reserve(instances);
+    worker.reserve(instances);
 
-    worker->setLimit(ui->horizontalSlider->value());
-//    limit = ui->horizontalSlider->value();
-    worker->setExpress(true);
-    if(ui->radioButton->isChecked()){
-          thread->start();
-    }else{
-//        targettedBenchmark();
+    for(int i=0; i< instances; i++){
+        thread.push_back(new QThread);
+        worker.push_back(new BenchmarkWorker(ui->horizontalSlider->value(), ui->comboBox->itemText(ui->comboBox->currentIndex())));
+        worker[i]->moveToThread(thread[i]);
+
+//        thread[i] = new QThread;
+//        worker[i] = new BenchmarkWorker(ui->horizontalSlider->value());
+//        worker[i]->moveToThread(thread[i]);
+
+        connect(thread[i], SIGNAL(started()), worker[i], SLOT(run()));
+        connect(worker[i], SIGNAL(finished(int)), thread[i], SLOT(quit()));
+        connect(thread[i], SIGNAL(finished()), thread[i], SLOT(deleteLater()));
+        connect(worker[i], SIGNAL(finished(int)), worker[i], SLOT(deleteLater()));
+
+        qDebug() << "connected";
+        worker[i]->setLimit(ui->horizontalSlider->value());
+    //    limit = ui->horizontalSlider->value();
+
+        if(ui->radioButton->isChecked()){
+             worker[i]->setExpress(true);
+
+        }else{
+            worker[i]->setExpress(false);
+        }
+        thread[i]->start();
+
+        qDebug() << "started";
     }
+    qDebug() << "instance size" + QString::number(thread.size());
+
 }
 
 void Benchmark::on_pushButton_2_clicked()
 {
     ui->pushButton->setEnabled(true);
     ui->pushButton_2->setEnabled(false);
-    worker->setLimit(0);
+    for(int i=0; i<ui->horizontalSlider_2->value(); i++){
+        worker[i]->setLimit(0);
+//        delete worker[i];
+//        delete thread[i];
+    }
+
+    worker.clear();
+    thread.clear();
+
+}
+
+/**
+ * Delete individually to allow new worker objects to be made
+ *
+ * @brief Benchmark::onBenchmarkFinished
+ * @param iter
+ */
+void Benchmark::onBenchmarkFinished(int iter)
+{
+    delete worker[iter];
+    delete thread[iter];
 }
 

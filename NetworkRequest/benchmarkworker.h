@@ -14,7 +14,7 @@ class BenchmarkWorker : public QObject
 {
     Q_OBJECT
 public:
-    explicit BenchmarkWorker(int iteration, QObject *parent = 0);
+    explicit BenchmarkWorker(int iteration, QString service = NULL, QObject *parent = 0);
     ~BenchmarkWorker();
     void createUser(QString username);
     void deleteUser(QString username);
@@ -38,7 +38,7 @@ public:
 
 signals:
     void waitOnResponse();
-    void finished();
+    void finished(int);
 
 
 public slots:
@@ -53,6 +53,8 @@ private:
     bool advance = true;
     bool express = true;
     int limit = 0;
+    QString service;
+    int iteration;
     QString hostname;
 
     QNetworkAccessManager *networkManager;

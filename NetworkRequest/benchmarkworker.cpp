@@ -1,8 +1,10 @@
 #include "benchmarkworker.h"
 #include <QCoreApplication>
-BenchmarkWorker::BenchmarkWorker(int iteration, QObject *parent) : QObject(parent)
+BenchmarkWorker::BenchmarkWorker(int iter, QString serv, QObject *parent) : QObject(parent)
 {
-        qDebug() << QString::number(iteration);
+        qDebug() << "iteration" + QString::number(iter);
+        iteration = iter;
+        service = serv;
         networkManager = new QNetworkAccessManager(this);
         hostname = QHostInfo::localHostName();
 
@@ -178,7 +180,7 @@ void BenchmarkWorker::run()
     }else{
         targettedBenchmark();
     }
-    emit(finished());
+    emit(finished(iteration));
 }
 
 void BenchmarkWorker::expressBenchmark()
@@ -202,8 +204,6 @@ void BenchmarkWorker::expressBenchmark()
 void BenchmarkWorker::targettedBenchmark()
 {
     //switch statement on user selection
-//    QString service = ui->comboBox->itemText(ui->comboBox->currentIndex());
-    QString service = "abc";
     QRegularExpression pay("\\bPay\\b");
     QRegularExpression history("\\bTransaction History\\b");
     QRegularExpression add("\\bRegister\\b");
@@ -215,10 +215,13 @@ void BenchmarkWorker::targettedBenchmark()
 
     createUser(hostname);
     if (pay.match(service).hasMatch()){
+
+        this->createUser(hostname);
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
             this->pay();
         }
+        this->deleteUser(hostname);
     }else if (history.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);

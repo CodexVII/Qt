@@ -29,11 +29,12 @@ signals:
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
+    void onBenchmarkFinished(int iter);
 
 private:
     Ui::Benchmark *ui;
-    QThread *thread;
-    BenchmarkWorker *worker;
+    std::vector<QThread*> thread;
+    std::vector<BenchmarkWorker*> worker;
 };
 
 #endif // BENCHMARK_H

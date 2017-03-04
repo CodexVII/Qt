@@ -2,6 +2,7 @@
 #include "ui_benchmark.h"
 #include <QDebug>
 #include <QThread>
+#include <QMessageBox>
 
 #include "benchmark.h"
 Benchmark::Benchmark(QWidget *parent) :
@@ -104,5 +105,13 @@ void Benchmark::onBenchmarkFinished(int iter)
 void Benchmark::updateProgressBar()
 {
     ui->progressBar->setValue(ui->progressBar->value()+1);
+    if(ui->progressBar->value()==ui->progressBar->maximum()){
+        ui->pushButton->setEnabled(true);
+        ui->pushButton_2->setEnabled(false);
+
+        QMessageBox::information(this, tr("Benchmark"),
+                                       tr("Benchmark Complete!"),
+                                       QMessageBox::Ok);
+    }
 }
 

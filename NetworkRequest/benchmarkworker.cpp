@@ -5,8 +5,9 @@ BenchmarkWorker::BenchmarkWorker(int iter, QString serv, QObject *parent) : QObj
         qDebug() << "iteration" + QString::number(iter);
         iteration = iter;
         service = serv;
+        randId = rand() % 64000;
         networkManager = new QNetworkAccessManager(this);
-        hostname = QHostInfo::localHostName();
+        hostname = QHostInfo::localHostName() + "(" + QString::number(randId) +")";
 
         connect(networkManager, SIGNAL(finished(QNetworkReply*)),
                 this, SLOT(onRequestFinished()));
@@ -188,6 +189,7 @@ void BenchmarkWorker::expressBenchmark()
     for(int i=0; i<limit; i++){
         // update the progress bar
 //        ui->progressBar->setValue(i);
+        emit(nextIteration());
         qDebug() << "At expresss iter" + QString::number(i);
         createUser(hostname);
         login();
@@ -219,34 +221,40 @@ void BenchmarkWorker::targettedBenchmark()
         this->createUser(hostname);
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->pay();
         }
         this->deleteUser(hostname);
     }else if (history.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->getTransactionHistory();
         }
     }else if (add.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->createUser(hostname + "-target");
             this->deleteUser(hostname + "-target");
         }
     }else if (remove.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->createUser(hostname + "-target");
             this->deleteUser(hostname + "-target");
         }
     }else if (password.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->updatePassword();
         }
     }else if (login.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
+            emit(nextIteration());
             this->login();
         }
     }else if (search.match(service).hasMatch()){
@@ -258,6 +266,7 @@ void BenchmarkWorker::targettedBenchmark()
     else if (get.match(service).hasMatch()){
             for(int i=0; i< limit; i++){
 //                ui->progressBar->setValue(i);
+                emit(nextIteration());
                 this->getUser();
             }
         }

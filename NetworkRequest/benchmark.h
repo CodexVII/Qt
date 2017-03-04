@@ -30,9 +30,13 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void onBenchmarkFinished(int iter);
+    void updateProgressBar();
 
 private:
     Ui::Benchmark *ui;
+
+    int progress=0;
+
     std::vector<QThread*> thread;
     std::vector<BenchmarkWorker*> worker;
 };

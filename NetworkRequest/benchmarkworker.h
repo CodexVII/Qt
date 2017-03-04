@@ -39,7 +39,7 @@ public:
 signals:
     void waitOnResponse();
     void finished(int);
-
+    void nextIteration();
 
 public slots:
     void run();
@@ -54,8 +54,10 @@ private:
     bool express = true;
     int limit = 0;
     QString service;
+    int randId;
     int iteration;
     QString hostname;
+
 
     QNetworkAccessManager *networkManager;
 public slots:

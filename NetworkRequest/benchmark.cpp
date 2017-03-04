@@ -11,8 +11,6 @@ Benchmark::Benchmark(QWidget *parent) :
     ui->setupUi(this);
     ui->progressBar->hide();
     ui->pushButton_2->setEnabled(false);
-
-
 }
 
 
@@ -34,7 +32,8 @@ void Benchmark::on_pushButton_clicked()
 {
     ui->pushButton->setEnabled(false);
     ui->pushButton_2->setEnabled(true);
-    ui->progressBar->setMaximum(ui->horizontalSlider->value());
+    ui->progressBar->setValue(0);
+    ui->progressBar->setMaximum(ui->horizontalSlider->value()*ui->horizontalSlider_2->value());
 
     int instances = ui->horizontalSlider_2->value();
     // clear previous runs in case
@@ -56,6 +55,7 @@ void Benchmark::on_pushButton_clicked()
 
         connect(thread[i], SIGNAL(started()), worker[i], SLOT(run()));
         connect(worker[i], SIGNAL(finished(int)), thread[i], SLOT(quit()));
+        connect(worker[i], SIGNAL(nextIteration()), this, SLOT(updateProgressBar()));
         connect(thread[i], SIGNAL(finished()), thread[i], SLOT(deleteLater()));
         connect(worker[i], SIGNAL(finished(int)), worker[i], SLOT(deleteLater()));
 
@@ -83,13 +83,10 @@ void Benchmark::on_pushButton_2_clicked()
     ui->pushButton_2->setEnabled(false);
     for(int i=0; i<ui->horizontalSlider_2->value(); i++){
         worker[i]->setLimit(0);
-//        delete worker[i];
-//        delete thread[i];
     }
-
+    ui->progressBar->setValue(ui->progressBar->maximum());
     worker.clear();
     thread.clear();
-
 }
 
 /**
@@ -102,5 +99,10 @@ void Benchmark::onBenchmarkFinished(int iter)
 {
     delete worker[iter];
     delete thread[iter];
+}
+
+void Benchmark::updateProgressBar()
+{
+    ui->progressBar->setValue(ui->progressBar->value()+1);
 }
 

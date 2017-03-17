@@ -48,7 +48,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Targetted Benchmark</string>
+    <string>Targeted Benchmark</string>
    </property>
   </widget>
   <widget class="QTextBrowser" name="textBrowser_2">

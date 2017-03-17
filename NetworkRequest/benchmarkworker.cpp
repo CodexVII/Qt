@@ -189,7 +189,6 @@ void BenchmarkWorker::expressBenchmark()
     for(int i=0; i<limit; i++){
         // update the progress bar
 //        ui->progressBar->setValue(i);
-        emit(nextIteration());
         qDebug() << "At expresss iter" + QString::number(i);
         createUser(hostname);
         login();
@@ -199,6 +198,7 @@ void BenchmarkWorker::expressBenchmark()
         getTransactionHistory();
         updatePassword();
         deleteUser(hostname);
+        emit(nextIteration());
     }
 //    ui->progressBar->setValue(ui->progressBar->maximum());
 }
@@ -221,53 +221,60 @@ void BenchmarkWorker::targettedBenchmark()
         this->createUser(hostname);
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
             this->pay();
+            emit(nextIteration());
         }
         this->deleteUser(hostname);
     }else if (history.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
+
             this->getTransactionHistory();
+            emit(nextIteration());
         }
     }else if (add.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
+
             this->createUser(hostname + "-target");
             this->deleteUser(hostname + "-target");
+            emit(nextIteration());
         }
     }else if (remove.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
+
             this->createUser(hostname + "-target");
             this->deleteUser(hostname + "-target");
+            emit(nextIteration());
         }
     }else if (password.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
+
             this->updatePassword();
+            emit(nextIteration());
         }
     }else if (login.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
-            emit(nextIteration());
+
             this->login();
+            emit(nextIteration());
         }
     }else if (search.match(service).hasMatch()){
         for(int i=0; i< limit; i++){
 //            ui->progressBar->setValue(i);
             this->searchUsers();
+            emit(nextIteration());
         }
     }
     else if (get.match(service).hasMatch()){
             for(int i=0; i< limit; i++){
 //                ui->progressBar->setValue(i);
-                emit(nextIteration());
+
                 this->getUser();
+                emit(nextIteration());
             }
         }
     deleteUser(hostname);

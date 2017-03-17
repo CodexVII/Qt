@@ -1498,6 +1498,7 @@ debug/moc_benchmark.cpp: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostinfo.h \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
 		../NetworkRequest/network.h \
+		../NetworkRequest/benchmarkworker.h \
 		../NetworkRequest/benchmark.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -IC:/Users/keita/OneDrive/Documents/GitHub/Qt/NetworkRequest -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\NetworkRequest\benchmark.h -o debug\moc_benchmark.cpp
@@ -1550,6 +1551,52 @@ debug/moc_benchmarkworker.cpp: C:/Qt/5.7/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QUrlQuery \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QNetworkAccessManager \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qnetworkaccessmanager.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QSslConfiguration \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslconfiguration.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qvariant.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslerror.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslcertificate.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcryptographichash.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qssl.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QFlags \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QString \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QSharedDataPointer \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QMetaType \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QNetworkRequest \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qnetworkrequest.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QUrl \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QRegularExpression \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QHostInfo \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostinfo.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
+		../NetworkRequest/network.h \
 		../NetworkRequest/benchmarkworker.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -IC:/Users/keita/OneDrive/Documents/GitHub/Qt/NetworkRequest -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\NetworkRequest\benchmarkworker.h -o debug\moc_benchmarkworker.cpp
@@ -1734,6 +1781,7 @@ debug/main.o: ../NetworkRequest/main.cpp ../NetworkRequest/apiform.h \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/QHostInfo \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostinfo.h \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
+		../NetworkRequest/benchmarkworker.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qcoreapplication.h \
@@ -3293,6 +3341,7 @@ debug/benchmark.o: ../NetworkRequest/benchmark.cpp ../NetworkRequest/benchmark.h
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostinfo.h \
 		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
 		../NetworkRequest/network.h \
+		../NetworkRequest/benchmarkworker.h \
 		ui_benchmark.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qaction.h \
@@ -3353,7 +3402,12 @@ debug/benchmark.o: ../NetworkRequest/benchmark.cpp ../NetworkRequest/benchmark.h
 		C:/Qt/5.7/mingw53_32/include/QtGui/qtextformat.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout \
-		C:/Qt/5.7/mingw53_32/include/QtCore/QDebug
+		C:/Qt/5.7/mingw53_32/include/QtCore/QDebug \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QThread \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qthread.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\benchmark.o ..\NetworkRequest\benchmark.cpp
 
 debug/benchmarkworker.o: ../NetworkRequest/benchmarkworker.cpp ../NetworkRequest/benchmarkworker.h \
@@ -3404,7 +3458,56 @@ debug/benchmarkworker.o: ../NetworkRequest/benchmarkworker.cpp ../NetworkRequest
 		C:/Qt/5.7/mingw53_32/include/QtCore/qmetatype.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.7/mingw53_32/include/QtCore/qobject_impl.h
+		C:/Qt/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QUrlQuery \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QNetworkAccessManager \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qnetworkaccessmanager.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QSslConfiguration \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslconfiguration.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qvariant.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslerror.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslcertificate.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcryptographichash.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qssl.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QFlags \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QtGlobal \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QString \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QSharedDataPointer \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QMetaType \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QNetworkRequest \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qnetworkrequest.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QUrl \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QRegularExpression \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QHostInfo \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostinfo.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
+		../NetworkRequest/network.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QCoreApplication \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qeventloop.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\benchmarkworker.o ..\NetworkRequest\benchmarkworker.cpp
 
 debug/moc_apiform.o: debug/moc_apiform.cpp 
